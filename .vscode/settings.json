@@ -1,0 +1,15 @@
+// Mesmo que o settings do VS, mas de forma local (neste projeto somente)
+
+{
+    // Exemplo de setting (altera o zoom do VS)
+    "window.zoomLevel": 0,
+
+    //
+
+    // Setting para mapear diferentes comandos de execução para diferentes linguagens (Extensão Code Runner)
+    // Usado para personalizar o comando de execução para cada linguagem suportada
+    "code-runner.executorMap": {
+        // 'npx' e '--files' adicionados
+        "typescript": "npx ts-node --files",
+    }
+}
