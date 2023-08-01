@@ -1,9 +1,8 @@
 /*
-Open/Closed Principle
-Entidades devem estar abertas para extensão, mas fechadas para modificação.
+Interface segregation principle
+Clientes não devem ser forçados a depender de protocolos (types, interfaces, membros abstratos) que não utilizam
 
-- Classes devem ser projetadas de forma que possam ser estendidas para adicionar novas funcionalidades sem que seja necessário modificar seu código-fonte existente
-Ex: ao criar novas funcionalidades para uma classe, apenas adicionar novas subclasses mantendo classe original fechada para modificações
+Ex: É criado um type para cliente com chaves 'nome, cpf, cnpj'. Nem todo cliente utilizará cpf ou cnpj, portanto, serão forçados a ter propriedades que não deveriam ter
 */
 
 import { Messaging } from './services/messaging';
@@ -12,15 +11,17 @@ import { Persistency } from './services/persistency';
 import { ShoppingCart } from './classes/shopping-cart';
 import { Product } from './classes/product';
 import { NoDiscount } from './classes/discount';
+import { IndividualCustomer } from './classes/customer';
 
 // const fiftyPercentDiscount = new FiftyPercentDiscount();
 // const tenPercentDiscount = new TenPercentDiscount();
 const noDiscount = new NoDiscount();
+const customer1 = new IndividualCustomer('jose', 'neto', '12345678908');
 
 const shoppingCart = new ShoppingCart(noDiscount);
 const messaging = new Messaging();
 const persistency = new Persistency();
-const order = new Order(shoppingCart, messaging, persistency);
+const order = new Order(shoppingCart, messaging, persistency, customer1);
 
 shoppingCart.addItem(new Product('Camiseta', 49.9));
 shoppingCart.addItem(new Product('Caderno', 9.912314515));

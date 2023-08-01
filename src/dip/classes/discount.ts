@@ -1,5 +1,7 @@
-export abstract class Discount {
-  protected discount: number = 0;
+import { DiscountProtocol } from './interfaces/discount';
+
+export abstract class Discount implements DiscountProtocol {
+  discount: number = 0;
 
   calculate(subtotal: number): number {
     const discountValue = (subtotal * this.discount) / 100;
@@ -11,9 +13,9 @@ export abstract class Discount {
 export class NoDiscount extends Discount {}
 
 export class FiftyPercentDiscount extends Discount {
-  protected readonly discount: number = 50;
+  readonly discount: number = 50;
 }
 
 export class TenPercentDiscount extends Discount {
-  protected readonly discount: number = 10;
+  readonly discount: number = 10;
 }

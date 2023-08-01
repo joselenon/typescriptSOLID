@@ -1,3 +1,11 @@
+/*
+Single responsability principle
+Classes devem ter uma única responsabilidade, apenas um motivo para ser alterada
+
+- Uma classe é coesa quando suas funções utilizam seus atributos
+- Se voltar muito em uma classe para readaptá-la é frequente, é sinal de que há diferentes responsabilidades em um mesmo local
+*/
+
 import { Messaging } from './services/messaging';
 import { Order } from './entities/order';
 import { Persistency } from './services/persistency';

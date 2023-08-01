@@ -1,9 +1,6 @@
 /*
-Open/Closed Principle
-Entidades devem estar abertas para extensão, mas fechadas para modificação.
-
-- Classes devem ser projetadas de forma que possam ser estendidas para adicionar novas funcionalidades sem que seja necessário modificar seu código-fonte existente
-Ex: ao criar novas funcionalidades para uma classe, apenas adicionar novas subclasses mantendo classe original fechada para modificações
+Liskov substitution principle
+Estabele que, se S é uma subclasse de T, objetos do tipo T podem ser substituídos por objetos do tipo S sem alterar a correção do programa.
 */
 
 import { Messaging } from './services/messaging';

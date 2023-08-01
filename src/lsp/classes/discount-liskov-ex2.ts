@@ -1,3 +1,5 @@
+// Exemplo de violação do princípio - comportamento do método pai sobrescrito por uma subclasse
+
 export abstract class Discount {
   protected discount: number = 0;
 
@@ -8,7 +10,12 @@ export abstract class Discount {
   }
 }
 
-export class NoDiscount extends Discount {}
+// Mudança de comportamento do método pai (errado por mais que seja funcional)
+export class NoDiscount extends Discount {
+  calculate(subtotal: number): number {
+    return subtotal;
+  }
+}
 
 export class FiftyPercentDiscount extends Discount {
   protected readonly discount: number = 50;
